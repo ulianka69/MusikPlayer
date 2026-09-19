@@ -3,7 +3,7 @@ from tkinter import ttk
 
 
 class PlaylistWindow(ctk.CTkToplevel):
-    """Окно со списком всех треков (таблица)"""
+   
 
     PRIMARY = "#ff4081"
     SECONDARY = "#7c4dff"
@@ -25,7 +25,6 @@ class PlaylistWindow(ctk.CTkToplevel):
         self.refresh()
 
     def _build_ui(self):
-        # ===== ВЕРХНЯЯ ПАНЕЛЬ =====
         top = ctk.CTkFrame(self, fg_color=self.BG_SURFACE, corner_radius=0)
         top.pack(fill="x")
 
@@ -79,7 +78,7 @@ class PlaylistWindow(ctk.CTkToplevel):
             command=self.remove_selected
         ).pack(side="right", padx=5, pady=12)
 
-        # ===== ТАБЛИЦА =====
+        
         table_frame = ctk.CTkFrame(self, fg_color=self.BG_DARK)
         table_frame.pack(fill="both", expand=True, padx=15, pady=15)
 
@@ -142,7 +141,7 @@ class PlaylistWindow(ctk.CTkToplevel):
         self.tree.bind("<Double-Button-1>", self._on_double_click)
         self.tree.bind("<Return>", self._on_double_click)
 
-        # ===== НИЗ =====
+
         bottom = ctk.CTkFrame(self, fg_color=self.BG_SURFACE, corner_radius=0)
         bottom.pack(fill="x")
 
