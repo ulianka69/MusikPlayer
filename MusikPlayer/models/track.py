@@ -2,7 +2,6 @@ import os
 
 
 class Track:
-    """Модель музыкального трека — парсит метаданные без mutagen"""
 
     def __init__(self, file_path):
         self.file_path = file_path
@@ -20,7 +19,7 @@ class Track:
         name = os.path.basename(self.file_path)
         name = os.path.splitext(name)[0]
 
-        # Убираем ведущие номера треков: "01. Artist - Title"
+
         if ". " in name[:4]:
             name = name.split(". ", 1)[-1]
 
@@ -32,7 +31,7 @@ class Track:
             self.title = name
 
     def _parse_id3v1(self):
-        """ID3v1 — последние 128 байт MP3"""
+
         try:
             with open(self.file_path, "rb") as f:
                 f.seek(-128, 2)
@@ -66,7 +65,6 @@ class Track:
             pass
 
     def get_duration_str(self):
-        """Форматирует длительность в M:SS"""
         minutes = self.duration // 60
         seconds = self.duration % 60
         return f"{minutes}:{seconds:02d}"
